@@ -1,6 +1,6 @@
 ---
 name: fs-build
-description: Metodo completo para construir landing pages e sites premium com identidade propria por pagina, sem cara de IA. Use quando o usuario pedir uma LP, um site institucional, um catalogo de produtos, ou "no padrao frontend-simple". E a skill principal do kit; roteia para fs-archetypes, fs-design-system, fs-motion, fs-copy, fs-deslop e fs-quality.
+description: Metodo completo para construir sites e paginas web premium com identidade propria, sem cara de IA. Use SEMPRE que o usuario pedir um site, uma pagina web, uma landing page, um portfolio, um site institucional, uma pagina de produto ou um catalogo (mesmo sem citar este kit). E a skill principal; comeca pela descoberta com o usuario (fs-discovery) e roteia fs-archetypes, fs-design-system, fs-typography, fs-motion, fs-copy, fs-deslop e fs-quality.
 ---
 
 # fs-build: o metodo em 7 passos
@@ -24,6 +24,15 @@ qualquer coisa chegar ao usuario.
    em aba anonima. Cache de navegador gera falso "esta quebrado" e ja
    desperdicou horas de iteracao em projetos reais.
 
+## Passo 0: descoberta com o usuario (novo projeto = obrigatorio)
+
+Antes de qualquer construcao, rode a skill `fs-discovery`: peca prints e URLs
+de referencia (o usuario pode colar imagens no chat), faca as 4 perguntas que
+importam (trabalho da pagina, publico, tom, marca existente) e apresente 2 ou
+3 direcoes renderizadas (A, B, C) para o usuario escolher. A escolha vira o
+arquivo `DIRECAO.md` do projeto. So pule a descoberta se o usuario ja trouxe
+direcao fechada (marca, referencia e tom definidos).
+
 ## Os 7 passos (por pagina)
 
 1. **Entender a fonte.** Leia INTEIRO o material da pagina (briefing, produto,
@@ -34,9 +43,10 @@ qualquer coisa chegar ao usuario.
    uma linha por pagina. So depois abra o editor. Nunca pule este passo: e o
    que impede o projeto de virar 27 clones.
 3. **Construir.** Base compartilhada + camada da pagina (`[data-pagina]` com
-   acento proprio). Design system e tokens: skill `fs-design-system`. Copy:
-   skill `fs-copy`. Espacamento: secoes `clamp(64px, 8vw, 120px)`, ritmo
-   variado, nada colado.
+   acento proprio). Design system e tokens: skill `fs-design-system`.
+   Tipografia: skill `fs-typography` (par com intencao, self-host, escala
+   fluida). Copy: skill `fs-copy`. Espacamento: secoes
+   `clamp(64px, 8vw, 120px)`, ritmo variado, nada colado.
 4. **Animar.** Assinatura em loop com pausa de leitura (~3,5s), pausada fora
    da viewport, estatica sob reduced-motion, conteudo visivel sem JS.
    Padroes prontos: skill `fs-motion`.

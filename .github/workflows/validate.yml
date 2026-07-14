@@ -19,8 +19,8 @@ jobs:
             if(!mp.name||!mp.owner||!Array.isArray(mp.plugins)||!mp.plugins.length) throw new Error("marketplace.json invalido");
             for(const p of mp.plugins){
               const pj=JSON.parse(fs.readFileSync(p.source.replace(/^\.\//,"")+"/.claude-plugin/plugin.json","utf8"));
-              if(!pj.name||!pj.version||!pj.description) throw new Error("plugin.json invalido: "+p.name);
-              console.log("ok:",pj.name,pj.version);
+              if(!pj.name||!pj.description) throw new Error("plugin.json invalido: "+p.name);
+              console.log("ok:",pj.name,pj.version||"(rolling)");
             }'
       - name: Skills tem SKILL.md com frontmatter
         run: |

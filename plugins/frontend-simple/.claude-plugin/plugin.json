@@ -1,7 +1,9 @@
 {
   "name": "frontend-simple",
-  "version": "1.0.0",
-  "description": "Frontend premium sem cara de IA: metodo em 7 passos, arquetipos por pagina (anti-clone), design system em camadas com 3 temas, motion em loop com pausa, copy enterprise, auditoria de-slop e gates de qualidade. Inclui template starter funcional.",
-  "author": { "name": "NEXUS", "url": "https://github.com/SoberanusOnline" },
+  "description": "Frontend premium sem cara de IA. Ativa quando o usuario pede um site, uma pagina web, uma landing page, um portfolio ou um institucional: descoberta com referencias e opcoes A/B/C, arquetipos por pagina, design system em camadas com 3 temas, tipografia premium, motion em loop, copy enterprise, de-slop e gates de qualidade.",
+  "author": {
+    "name": "NEXUS",
+    "url": "https://github.com/SoberanusOnline"
+  },
   "homepage": "https://github.com/SoberanusOnline/frontend-simple"
 }

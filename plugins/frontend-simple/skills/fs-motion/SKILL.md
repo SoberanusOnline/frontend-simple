@@ -145,3 +145,47 @@ if(RM){ el.textContent = fmt(to); return; }
 - [ ] Counters partem de ~90%, valor final no HTML.
 - [ ] `window.addEventListener('load', function(){ ScrollTrigger.refresh(); })` após
       imagens assentarem.
+
+## Motion nativo do navegador (2026)
+
+**Scroll-driven animations em CSS puro.** Reveal simples e barras de progresso não
+precisam de JS: `animation-timeline: view()` liga a animação à posição do elemento na
+viewport. O branch de `prefers-reduced-motion` é OBRIGATÓRIO, igual ao dos reveals:
+
+```css
+@supports (animation-timeline: view()){
+  .sd-reveal{
+    animation: sd-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;   /* anima só enquanto entra */
+  }
+  @keyframes sd-in{
+    from{ opacity: 0; transform: translateY(16px) }
+    to{ opacity: 1; transform: none }
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .sd-reveal{ animation: none; opacity: 1; transform: none }
+}
+```
+
+Quando usar o quê: CSS puro para reveal de entrada, progress bar de leitura e qualquer
+efeito 1 elemento / 1 timeline; GSAP continua para timelines orquestradas com estado
+(a assinatura em loop, sequências com stagger dependente de dados, pause fora da viewport).
+
+**View Transitions API entre páginas.** Navegação multi-página com transição suave, sem
+SPA. Opt-in por CSS e nome único por elemento que "viaja" de uma página à outra:
+
+```css
+@view-transition{ navigation: auto }
+.mo-hero-mark{ view-transition-name: marca-monitor }  /* único na página inteira */
+::view-transition-old(root), ::view-transition-new(root){ animation-duration: .35s }
+```
+
+Nome duplicado cancela a transição inteira. Fallback é gracioso por natureza: navegador
+sem suporte só navega sem animar, nada quebra e nada fica oculto.
+
+**As regras do kit continuam valendo.** Scroll-driven e view transitions animam SÓ
+transform/opacity; qualquer estado inicial oculto via CSS continua atrás do gate
+`html.fs-js` quando depender de JS; e se a scroll-driven animation virar assinatura em
+loop, ela respeita o mesmo contrato toca -> segura -> reseta -> repete do padrão (a).

@@ -138,3 +138,51 @@ da cadeia de includes aponta para o escolhido:
 
 O tema define geometria, neutros e tipografia; o acento continua vindo dos tokens
 `--fs-*` da página. Trocar de tema nunca deve exigir tocar no CSS das páginas.
+
+## CSS moderno e organizado (2026)
+
+**Arquitetura @layer.** Declare a ordem das camadas uma vez; utilitário vence componente
+sem hack de especificidade, sem `!important`:
+
+```css
+@layer reset, base, componentes, utilidades;
+
+@layer componentes{ .card{ padding: 32px } }
+@layer utilidades{ .p-0{ padding: 0 } }   /* vence .card mesmo com seletor mais fraco */
+```
+
+**Container queries.** Componente que se adapta ao CONTAINER (card, painel), não à
+viewport. A regra: o pai anuncia `container-type` (senão a query nunca dispara):
+
+```css
+.grid-cards{ container-type: inline-size }
+@container (max-width: 420px){
+  .card{ grid-template-columns: 1fr; gap: 16px }
+}
+```
+
+**OKLCH nos tokens de cor.** Interpolação natural (sem cinza morto no meio do gradiente)
+e lightness intuitiva: mudar L mantém o croma percebido. Sempre com fallback:
+
+```css
+[data-pagina='auditor']{
+  --fs-accent: #e8a317;                    /* fallback */
+  --fs-accent: oklch(0.75 0.15 80);        /* mesma cor, editável por L/C/H */
+}
+```
+
+**Fluidez e temas honestos.** Tipos e espaçamentos com `clamp()` (nunca breakpoint duro
+para tamanho de texto). Tema claro/escuro de verdade: `color-scheme: light dark` no root
+(formulários e scrollbars nativos acompanham) + `@media (prefers-color-scheme: dark)`
+trocando SÓ tokens, nunca regras espalhadas.
+
+**Organização de arquivos.** `base.css` (tokens + layout + componentes compartilhados),
+`tema.css` (tokens do tema), `pagina-<slug>.css` (só o que é daquela página). Comentários
+de seção numerados (`/* 3. HERO */`) para navegação rápida. Nada de CSS morto: regra que
+não casa com nenhum elemento sai no mesmo commit.
+
+**JS organizado.** Módulos pequenos por responsabilidade (um arquivo = um comportamento),
+zero framework por default: HTML completo primeiro, JS como progressive enhancement.
+Event delegation no container em vez de N listeners por item; nenhum listener global
+(scroll, resize) sem necessidade comprovada. Todo comportamento que esconde ou move
+conteúdo fica atrás do gate `.fs-js` (ver fs-motion).

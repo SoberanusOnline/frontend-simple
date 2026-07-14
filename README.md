@@ -1,173 +1,184 @@
 <div align="center">
 
+**English** · [Português (BR)](README.pt-BR.md) · [Español](README.es.md)
+
 # frontend-simple
 
-**Frontend premium sem cara de IA.**
+**Premium frontend without the AI look.**
 
-Metodo completo para criar sites e paginas web com identidade propria:
-descoberta com referencias, arquetipos de composicao, design system em
-camadas, tipografia premium, motion em loop, copy enterprise, auditoria
-de-slop e gates de qualidade.
+A complete method for building websites and web pages with real identity:
+reference-driven discovery, composition archetypes, layered design system,
+premium typography, looped motion, enterprise copy, de-slop auditing and
+quality gates.
 
 [![CI](https://github.com/SoberanusOnline/frontend-simple/actions/workflows/validate.yml/badge.svg)](https://github.com/SoberanusOnline/frontend-simple/actions/workflows/validate.yml)
 ![Skills](https://img.shields.io/badge/skills-10-0f62fe)
 ![Agents](https://img.shields.io/badge/agents-2-161616)
-![Licenca](https://img.shields.io/badge/licenca-MIT-3ddbd9)
+![License](https://img.shields.io/badge/license-MIT-3ddbd9)
 ![by NEXUS](https://img.shields.io/badge/by-NEXUS-0043ce)
 
-<img src="docs/starter.png" alt="Template starter do kit renderizado" width="820">
+<img src="docs/starter.png" alt="The kit starter template, rendered" width="820">
 
-*O template starter do kit, do jeito que sai da caixa.*
+*The kit's starter template, straight out of the box.*
 
 </div>
 
 ---
 
-## Por que existe
+## Why it exists
 
-Nasceu de um projeto real: 27 landing pages construidas de uma vez. A maior
-licao nao foi estetica, foi de processo: **brief aberto gera clones;
-identidade vem de prescricao.** O kit transforma isso em metodo: cada pagina
-ganha um arquetipo proprio de composicao, e nada chega ao usuario sem passar
-pelos gates (alinhamento, contraste, overflow, cara de IA).
+Born from a real project: 27 landing pages built at once. The biggest lesson
+was not about aesthetics but about process: **open briefs produce clones;
+identity comes from prescription.** The kit turns that into a method: every
+page gets its own composition archetype, and nothing reaches the user before
+passing the gates (alignment, contrast, overflow, AI-look).
 
-## Instalar
+> Note: the skills themselves are currently written in Brazilian Portuguese.
+> Claude follows them regardless of your conversation language, and works
+> with you in English, Spanish or any other language.
 
-### Claude Code (terminal) recomendado
+## Install
 
-Um comando: instala e ja deixa o **auto-update ligado**.
+### Claude Code (terminal) recommended
+
+One command: installs and turns **auto-update on**.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/SoberanusOnline/frontend-simple/main/install.sh | bash
 ```
 
-Prefere manual?
+Prefer manual?
 
 ```bash
 claude plugin marketplace add SoberanusOnline/frontend-simple
 claude plugin install frontend-simple@frontend-simple
 ```
 
-Depois reinicie o Claude Code (ou rode `/reload-plugins`).
+Then restart Claude Code (or run `/reload-plugins`).
 
-### Claude Code na web (claude.ai/code)
+### Claude Code on the web (claude.ai/code)
 
-Instale no escopo do PROJETO dentro de um repositorio. A configuracao vai
-para `.claude/settings.json`, viaja no commit, e o plugin carrega tambem nas
-sessoes web daquele repositorio (e para todo colaborador que confiar no repo):
+Install at PROJECT scope inside a repository. The configuration goes into
+`.claude/settings.json`, travels with the commit, and the plugin loads in web
+sessions of that repository too (for every collaborator who trusts the repo):
 
 ```bash
 claude plugin install frontend-simple@frontend-simple --scope project
-git add .claude/settings.json && git commit -m "chore: frontend-simple no projeto"
+git add .claude/settings.json && git commit -m "chore: add frontend-simple"
 ```
 
-### Codex, ChatGPT, Cursor e outros agentes
+### Codex, ChatGPT, Cursor and other agents
 
-Todo o conhecimento do kit e Markdown puro. Veja o [AGENTS.md](AGENTS.md):
-clone o repositorio e aponte o agente para os `SKILL.md`. No ChatGPT, anexe
-os arquivos como conhecimento de um GPT personalizado.
+All of the kit's knowledge is plain Markdown. See [AGENTS.md](AGENTS.md):
+clone the repository and point your agent at the `SKILL.md` files. In
+ChatGPT, attach them as knowledge for a custom GPT.
 
-## Usar
+## Use
 
-Nao precisa citar o plugin. Fale natural:
+No need to mention the plugin. Just say it naturally:
 
-> "quero fazer um site para meu produto"
-> "preciso de uma pagina web pro lancamento"
-> "monta um portfolio pra mim"
-> "esse site ta com cara de IA, arruma"
+> "I want a website for my product"
+> "I need a web page for the launch"
+> "build me a portfolio"
+> "this site looks AI-generated, fix it"
 
-O kit assume: pede suas referencias (**cole prints** de sites que voce acha
-bonitos, ou mande URLs), faz as 4 perguntas que importam e te mostra
-**direcoes A/B/C renderizadas** para escolher antes de construir. So depois
-constroi, com verificacao visual e gates antes de te mostrar.
+The kit takes over: it asks for your references (**paste screenshots** of
+sites you find beautiful, or send URLs), asks the 4 questions that matter,
+and shows you **rendered directions A/B/C** to choose from before building.
+Only then it builds, with visual verification and gates before showing you
+anything.
 
-## Como chegam as atualizacoes
+## How updates arrive
 
-Simples: **a gente publica neste repositorio (push) e pronto**. O plugin usa
-versao rolante: cada atualizacao aqui no GitHub ja e uma versao nova.
+Simple: **we publish to this repository (push) and that is it**. The plugin
+uses rolling versions: every update on GitHub is already a new version.
 
-- Instalou pelo **instalador de um comando**: auto-update ja esta ligado.
-  O Claude Code baixa em background e avisa; basta rodar `/reload-plugins`.
-- Instalou **manual**: ligue uma vez (`/plugin` > Marketplaces >
-  frontend-simple > Enable auto-update) ou atualize quando quiser:
+- Installed via the **one-command installer**: auto-update is already on.
+  Claude Code downloads in the background and notifies you; just run
+  `/reload-plugins`.
+- Installed **manually**: enable it once (`/plugin` > Marketplaces >
+  frontend-simple > Enable auto-update) or update whenever you want:
 
 ```bash
 claude plugin marketplace update frontend-simple
 claude plugin update frontend-simple@frontend-simple
 ```
 
-## O que vem dentro
+## What is inside
 
 ### 10 skills
 
-| Skill | O que faz |
+| Skill | What it does |
 |---|---|
-| `fs-build` | O metodo completo em 7 passos, do briefing ao gate final. Porta de entrada; roteia as demais |
-| `fs-discovery` | Descoberta com o usuario: prints e URLs de referencia, 4 perguntas certas, direcoes A/B/C renderizadas |
-| `fs-archetypes` | Catalogo de ~27 arquetipos de hero (MEDIDOR, FEED AO VIVO, MAPA, CADEIA, DOSSIE, PORTAL, DIARIO...) e a regra anti-clone |
-| `fs-design-system` | Camadas (base, marca, pagina), tokens `--fs-*`, 3 temas, CSS moderno (@layer, container queries, OKLCH) |
-| `fs-typography` | Pares com intencao, catalogo curado com licenca, self-host de variable fonts, escala fluida |
-| `fs-sources` | Onde buscar ao vivo: 6 acervos de fontes, 7 de icones (Iconify API, LobeHub...), 9 galerias de referencia, cores, fotos |
-| `fs-motion` | Assinatura em loop com pausa, reveal blindado sem JS, scroll-driven animations e View Transitions |
-| `fs-copy` | Voz enterprise: headlines com tensao real, estrutura de hero, o que nunca escrever |
-| `fs-deslop` | Auditoria "tirar cara de IA": os tells de design e copy de 2026, cada um com correcao |
-| `fs-quality` | Gates finais: alinhamento (os "tortos" classicos), overflow, contraste AA, links e imagens |
+| `fs-build` | The complete 7-step method, from brief to final gate. Entry point; routes the others |
+| `fs-discovery` | Discovery with the user: reference screenshots and URLs, the 4 right questions, rendered A/B/C directions |
+| `fs-archetypes` | Catalog of ~27 hero archetypes (GAUGE, LIVE FEED, MAP, CHAIN, DOSSIER, PORTAL, GAZETTE...) and the anti-clone rule |
+| `fs-design-system` | Layers (base, brand, page), `--fs-*` tokens, 3 themes, modern CSS (@layer, container queries, OKLCH) |
+| `fs-typography` | Intentional pairings, curated catalog with licensing, self-hosted variable fonts, fluid scale |
+| `fs-sources` | Where to search live: 6 font libraries, 7 icon sources (Iconify API, LobeHub...), 9 design galleries, colors, photos |
+| `fs-motion` | Signature animation looping with a read pause, JS-proof reveal, scroll-driven animations and View Transitions |
+| `fs-copy` | Enterprise voice: headlines with real tension, hero structure, what never to write |
+| `fs-deslop` | "Remove the AI look" audit: the 2026 design and copy tells, each with its fix |
+| `fs-quality` | Final gates: alignment (the classic breakages), overflow, AA contrast, links and images |
 
 ### 2 agents
 
-| Agent | O que faz |
+| Agent | What it does |
 |---|---|
-| `fs-page-builder` | Constroi uma pagina a partir de um arquetipo prescrito. Um por pagina, em paralelo |
-| `fs-critic` | Critico adversario: caca slop, tortos e quebras por renderizacao antes da entrega |
+| `fs-page-builder` | Builds one page from a prescribed archetype. One per page, in parallel |
+| `fs-critic` | Adversarial critic: hunts slop, misalignments and breakage by rendering, before delivery |
 
-### Template starter e 3 temas
+### Starter template and 3 themes
 
-`skills/fs-build/templates/starter/` e uma pagina FUNCIONAL (a do print acima):
-tokens, nav premium, footer 4 colunas, sistema de reveal que nunca esconde
-conteudo sem JS, helper de loop com pausa e servidor local sem cache.
-`templates/themes/`: enterprise-sharp, editorial e dark-tech como pontos de
-partida de identidade.
+`skills/fs-build/templates/starter/` is a WORKING page (the one in the
+screenshot above): tokens, premium nav, 4-column footer, a reveal system that
+never hides content without JS, a loop-with-pause helper and a no-cache local
+server. `templates/themes/`: enterprise-sharp, editorial and dark-tech as
+identity starting points.
 
-## Filosofia
+## Philosophy
 
-1. **Referencia antes de codigo.** Ninguem descreve o site que quer, mas todo
-   mundo reconhece o que acha bonito. A descoberta transforma isso em direcao.
-2. **Arquetipo por pagina.** A composicao nasce do que o produto E (um feed,
-   um mapa, um documento, uma cadeia), nunca de um template.
-3. **Fonte viva, nao biblioteca morta.** O kit ensina onde buscar (fontes,
-   cores, referencias, icones) e como trazer, em vez de embarcar acervos.
-4. **Conteudo visivel sem JS.** Animacao realca; nunca esconde.
-5. **Verificar renderizado.** Screenshot antes de entregar, sempre.
-6. **Especificidade mata slop.** No design e na copy, a correcao nunca e
-   "estilizar mais": e ancorar cada decisao no dominio real.
+1. **References before code.** Nobody can describe the site they want, but
+   everyone recognizes what they find beautiful. Discovery turns that into
+   direction.
+2. **One archetype per page.** Composition comes from what the product IS
+   (a feed, a map, a document, a chain), never from a template.
+3. **Living sources, not dead libraries.** The kit teaches where to search
+   (fonts, colors, references, icons) and how to bring material in, instead
+   of shipping stale collections.
+4. **Content visible without JS.** Animation enhances; it never hides.
+5. **Verify rendered.** Screenshot before delivering, always.
+6. **Specificity kills slop.** In design and copy, the fix is never "style
+   it more": it is anchoring every decision in the product's real domain.
 
-## Perguntas rapidas
+## Quick questions
 
-**Funciona fora do Claude Code?** Sim. As skills sao Markdown puro: Codex,
-Cursor e afins usam via [AGENTS.md](AGENTS.md); no ChatGPT, como conhecimento
-de um GPT. O que e exclusivo do Claude Code: instalacao nativa, auto-update e
-os 2 agents como subagentes automaticos.
+**Does it work outside Claude Code?** Yes. The skills are plain Markdown:
+Codex, Cursor and similar tools use them via [AGENTS.md](AGENTS.md); in
+ChatGPT, as knowledge for a custom GPT. What stays Claude Code exclusive:
+native install, auto-update and the 2 agents as automatic subagents.
 
-**Posso usar so uma parte?** Sim. Cada skill e autossuficiente: da para
-invocar so o `fs-deslop` num site existente, ou so o `fs-typography`.
+**Can I use just a part of it?** Yes. Every skill is self-contained: you can
+invoke only `fs-deslop` on an existing site, or only `fs-typography`.
 
-**Como contribuo?** Abra uma issue ou PR. O CI valida manifests, frontmatter
-e ate proibe travessao no conteudo (o padrao se aplica a si mesmo).
+**How do I contribute?** Open an issue or PR. The CI validates manifests and
+frontmatter, and even forbids em-dashes in the content (the standard applies
+to itself).
 
-## Skills companheiras (recomendadas)
+## Companion skills (recommended)
 
 ```bash
 claude plugin marketplace add freshtechbro/claudedesignskills
 claude plugin install gsap-scrolltrigger@claude-design-skillstack
 ```
 
-E o [impeccable](https://github.com/matteing/impeccable), cujo detector de
-anti-padroes e usado como gate automatico quando presente.
+And [impeccable](https://github.com/matteing/impeccable), whose anti-pattern
+detector is used as an automatic gate when present.
 
 ---
 
 <div align="center">
 
-Feito pela **NEXUS** · Licenca MIT · Use, adapte e crie os seus proprios templates
+Made by **NEXUS** · MIT License · Use it, adapt it, and build your own templates
 
 </div>

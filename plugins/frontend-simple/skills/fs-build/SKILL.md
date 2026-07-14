@@ -1,6 +1,6 @@
 ---
 name: fs-build
-description: Metodo completo para construir sites e paginas web premium com identidade propria, sem cara de IA. Use SEMPRE que o usuario pedir um site, uma pagina web, uma landing page, um portfolio, um site institucional, uma pagina de produto ou um catalogo (mesmo sem citar este kit). E a skill principal; comeca pela descoberta com o usuario (fs-discovery) e roteia fs-archetypes, fs-design-system, fs-typography, fs-motion, fs-copy, fs-deslop e fs-quality.
+description: Metodo completo para construir sites e paginas web premium com identidade propria, sem cara de IA. Use SEMPRE que o usuario pedir um site, uma pagina web, uma landing page, um portfolio, um blog, uma documentacao, um dashboard, um e-commerce ou catalogo, um site institucional, um site pessoal, um site de restaurante, evento ou agencia, um showcase de app, ou disser "refaz meu site", "moderniza meu site", "pagina para X" (mesmo sem citar este kit). E a skill principal; comeca pela descoberta com o usuario (fs-discovery) e roteia fs-archetypes, fs-pages, fs-sections, fs-backgrounds, fs-design-system, fs-typography, fs-sources, fs-motion, fs-text-fx, fs-copy, fs-deslop e fs-quality.
 ---
 
 # fs-build: o metodo em 7 passos
@@ -10,6 +10,43 @@ vez, onde a licao central foi: brief aberto gera clones; identidade vem de
 PRESCREVER uma composicao concreta por pagina antes de codar. O resto do kit
 garante o acabamento (motion fluido, copy afiada, nada torto) antes de
 qualquer coisa chegar ao usuario.
+
+## Falas que ativam este kit
+
+| O que o usuario diz | O que fazer primeiro |
+|---|---|
+| "quero um site para minha empresa / meu produto / meu restaurante" | Rodar fs-discovery (4 perguntas + direcoes A/B/C), depois fs-archetypes |
+| "faz uma landing page para X" | fs-discovery curto, depois fs-archetypes (tipo: landing de produto) |
+| "preciso de um portfolio / blog / documentacao / dashboard" | fs-archetypes: identificar o tipo de site e prescrever o arquetipo antes de codar |
+| "refaz meu site", "migra essa pagina" | Ler o site atual INTEIRO, listar o que preservar (conteudo, SEO, links), entao fs-discovery + fs-archetypes |
+| "moderniza isso", "deixa mais premium" | fs-deslop (diagnostico do que envelheceu) + fs-design-system + fs-typography |
+| "ta com cara de IA", "ta generico", "parece template" | fs-deslop (detector + correcoes), depois re-prescrever com fs-archetypes se o hero for clone |
+| "ta torto", "tem coisa vazando / sobrepondo" | Passo 6: screenshot 1440 e 390, LER a imagem, corrigir, entao fs-quality |
+| "a animacao ta estranha / pesada / piscando" | fs-motion (contrato de loop, reveal blindado, reduced-motion) |
+| "preciso de uma fonte melhor" | fs-typography (par com intencao, self-host, escala fluida) |
+| "acha uma referencia / uma paleta / imagens / icones" | fs-sources (material vivo com licenca) |
+| "melhora esse titulo / esse texto" | fs-copy (headline que lidera, sem travessao, sem inchaco) |
+| "revisa antes de publicar", "confere se ta pronto" | fs-quality (gate completo) + agente fs-critic para o veredito adversario |
+
+## Roteamento (mapa das 14 skills)
+
+| Skill | Quando entrar nela |
+|---|---|
+| fs-discovery | Novo projeto ou redesign sem direcao fechada: perguntas, referencias e direcoes A/B/C viram DIRECAO.md |
+| fs-archetypes | SEMPRE antes de compor qualquer pagina: identificar o tipo de site (15 tipos) e prescrever hero + assinatura + beat |
+| fs-pages | Planejar qualquer pagina alem do hero: o blueprint (quais secoes, em que ordem) por tipo de pagina |
+| fs-sections | Construir navegacao, rodapes e blocos de secao (features, prova, pricing, FAQ, formularios, CTA bands) |
+| fs-backgrounds | Definir o fundo/atmosfera de heros, secoes e bandas escuras (12 receitas CSS prontas) |
+| fs-design-system | Definir tokens, tema, espacamento e a camada por pagina (`[data-pagina]` com acento proprio) |
+| fs-typography | Escolher o par tipografico com intencao, self-host e escala fluida |
+| fs-sources | Buscar material vivo: fontes, paletas, referencias, icones, fotos, tudo com licenca conferida |
+| fs-motion | Principios de motion: assinatura em loop, reveals blindados, GSAP, scroll-driven, View Transitions |
+| fs-text-fx | Entrada da pagina (primeira dobra) e efeitos de texto: split-line, stagger, underline, count-up, scramble |
+| fs-copy | Escrever ou reescrever headline, leads, microcopy, formatos e CTAs |
+| fs-deslop | Diagnosticar e remover cara de IA (detector, template banido, cliches de copy e de layout) |
+| fs-quality | Gate final: alinhamento, overflow em 4 larguras, contraste AA, links 200 |
+| fs-page-builder (agent) | Construir 1 pagina em paralelo, com arquetipo JA prescrito, tocando so os arquivos dela |
+| fs-critic (agent) | Veredito adversario sobre a pagina pronta, antes de mostrar ao usuario |
 
 ## Setup (uma vez por projeto)
 
@@ -38,10 +75,12 @@ direcao fechada (marca, referencia e tom definidos).
 1. **Entender a fonte.** Leia INTEIRO o material da pagina (briefing, produto,
    versao anterior). O arquetipo nasce do que o produto E, nunca de estetica
    solta.
-2. **Prescrever.** Escolha o arquetipo de composicao (skill `fs-archetypes`),
-   a animacao-assinatura e o fluxo do beat "Veja em acao". Escreva num mapa:
-   uma linha por pagina. So depois abra o editor. Nunca pule este passo: e o
-   que impede o projeto de virar 27 clones.
+2. **Prescrever.** Escolha o arquetipo de composicao (skill `fs-archetypes`,
+   que hoje cobre 15 tipos de site: landing, institucional, portfolio, blog,
+   docs, dashboard, e-commerce, restaurante, evento, agencia e mais, nao so
+   landing page), a animacao-assinatura e o fluxo do beat "Veja em acao".
+   Escreva num mapa: uma linha por pagina. So depois abra o editor. Nunca
+   pule este passo: e o que impede o projeto de virar 27 clones.
 3. **Construir.** Base compartilhada + camada da pagina (`[data-pagina]` com
    acento proprio). Design system e tokens: skill `fs-design-system`.
    Tipografia: skill `fs-typography` (par com intencao, self-host, escala

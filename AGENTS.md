@@ -1,48 +1,71 @@
-# frontend-simple para agentes (Codex, Cursor, aider e afins)
+# frontend-simple for AI coding agents
 
-Este repositorio e um plugin do Claude Code, mas todo o conhecimento vive em
-Markdown puro. Qualquer agente de codigo consegue usar.
+This repository ships **Agent Skills in the open SKILL.md format**, organized
+as a Claude Code plugin. The skills are plain Markdown directories, so any
+agent that supports the SKILL.md standard (or that can read files) can use
+the kit: Codex CLI, Gemini CLI, GitHub Copilot, Cursor, Windsurf, Cline,
+Antigravity and others.
 
-## Se voce e um agente lendo isto
+## If you are an agent reading this
 
-Quando o usuario pedir um site, uma pagina web, uma landing page ou um
-portfolio, siga o metodo deste kit:
+When the user asks for a website, a web page, a landing page, a portfolio,
+a blog, docs or any other web surface, follow this kit's method:
 
-1. Leia `plugins/frontend-simple/skills/fs-build/SKILL.md` (o metodo em 7
-   passos). E o indice de tudo.
-2. Comece pela descoberta com o usuario:
-   `plugins/frontend-simple/skills/fs-discovery/SKILL.md` (referencias,
-   perguntas, direcoes A/B/C).
-3. Consulte as demais skills sob demanda, todas em
-   `plugins/frontend-simple/skills/<nome>/SKILL.md`:
-   fs-archetypes (composicoes por pagina, regra anti-clone),
-   fs-design-system (tokens e camadas), fs-typography (fontes),
-   fs-sources (onde buscar material vivo), fs-motion (animacao),
-   fs-copy (texto), fs-deslop (tirar cara de IA), fs-quality (gates finais).
-4. Use o template funcional em
-   `plugins/frontend-simple/skills/fs-build/templates/starter/` como
-   esqueleto e os temas em `templates/themes/`.
-5. Os papeis de agente em `plugins/frontend-simple/agents/` (fs-page-builder
-   e fs-critic) descrevem como paralelizar paginas e como auditar antes de
-   entregar; adote-os como instrucoes de subtarefa.
+1. Read `plugins/frontend-simple/skills/fs-build/SKILL.md` first. It is the
+   index: the 7-step method and the routing map to every other skill.
+2. Start with discovery:
+   `plugins/frontend-simple/skills/fs-discovery/SKILL.md` (reference
+   screenshots and URLs from the user, 4 key questions, rendered A/B/C
+   directions to choose from).
+3. Consult the other skills on demand, all under
+   `plugins/frontend-simple/skills/<name>/SKILL.md`:
+   `fs-archetypes` (composition per page and site type, anti-clone rule),
+   `fs-pages` (page blueprints), `fs-sections` (nav, footers, section
+   blocks), `fs-backgrounds` (background recipes), `fs-design-system`
+   (tokens and layers), `fs-typography` (fonts), `fs-sources` (where to
+   find live material), `fs-motion` (animation principles), `fs-text-fx`
+   (page entrance and text effects), `fs-copy` (writing), `fs-deslop`
+   (remove the AI look), `fs-quality` (final gates).
+4. Use the working template in
+   `plugins/frontend-simple/skills/fs-build/templates/starter/` as the
+   skeleton and the themes in `templates/themes/`.
+5. The agent roles in `plugins/frontend-simple/agents/` (fs-page-builder,
+   fs-critic) describe how to parallelize pages and how to audit before
+   delivery; adopt them as subtask instructions.
 
-Regras inegociaveis do kit: sem travessao nem emoji na copy, conteudo
-visivel sem JavaScript, um arquetipo proprio por pagina, verificar por
-screenshot renderizado antes de entregar.
+Non-negotiable rules: no em-dashes and no emoji in copy, content must be
+visible without JavaScript, one composition archetype per page, and always
+verify by rendered screenshot before delivering.
 
-## Como instalar fora do Claude Code
+## Install per tool
 
-- **Codex CLI / agentes com AGENTS.md**: clone o repositorio dentro (ou ao
-  lado) do projeto e referencie este arquivo no AGENTS.md do projeto, por
-  exemplo: "Para qualquer trabalho de frontend, siga
-  `vendor/frontend-simple/AGENTS.md`".
-- **ChatGPT / GPT personalizado**: anexe os arquivos SKILL.md como
-  conhecimento e use o conteudo de fs-build como instrucao principal.
-- **Cursor / outros**: aponte as regras do projeto para os SKILL.md deste
-  repositorio.
-
-No Claude Code, prefira a instalacao nativa (com auto-update):
+**Claude Code** (native, with auto-update):
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/SoberanusOnline/frontend-simple/main/install.sh | bash
 ```
+
+**Codex CLI and other SKILL.md-compatible agents**: copy the skill
+directories into your agent's skills folder (for Codex, typically
+`~/.codex/skills/`):
+
+```bash
+git clone https://github.com/SoberanusOnline/frontend-simple /tmp/fs
+cp -r /tmp/fs/plugins/frontend-simple/skills/* <your-agent-skills-folder>/
+```
+
+**Cursor / Windsurf / Copilot / Antigravity (project-level)**: vendor the
+repo and point your project instructions at this file:
+
+```bash
+git submodule add https://github.com/SoberanusOnline/frontend-simple vendor/frontend-simple
+```
+
+Then add one line to your project's AGENTS.md (or rules file):
+`For any frontend work, follow vendor/frontend-simple/AGENTS.md`.
+
+**ChatGPT / custom GPTs**: attach the SKILL.md files as knowledge and use
+the content of fs-build as the main instruction.
+
+Note: the skills are written in Brazilian Portuguese. Modern models follow
+them regardless of the conversation language.

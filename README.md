@@ -10,6 +10,14 @@ identidade vem de prescricao.**
 
 ## Instalacao
 
+Um comando (instala e ja liga o auto-update):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/SoberanusOnline/frontend-simple/main/install.sh | bash
+```
+
+Ou manual:
+
 ```bash
 claude plugin marketplace add SoberanusOnline/frontend-simple
 claude plugin install frontend-simple@frontend-simple
@@ -35,12 +43,10 @@ claude plugin install frontend-simple@frontend-simple --scope project
 ## Atualizacoes automaticas
 
 O plugin usa versao rolante: todo push neste repositorio ja e uma versao
-nova. Para receber tudo automaticamente, ligue o auto-update do marketplace
-(uma vez so):
-
-1. Rode `/plugin` e abra a aba **Marketplaces**
-2. Selecione **frontend-simple**
-3. Escolha **Enable auto-update**
+nova. O instalador de um comando ja deixa o auto-update LIGADO (via
+`extraKnownMarketplaces` no settings do usuario). Se instalou manual, ligue
+uma vez: `/plugin` > aba **Marketplaces** > **frontend-simple** > **Enable
+auto-update**.
 
 Com isso o Claude Code atualiza o kit em background e avisa quando ha
 novidade (basta rodar `/reload-plugins`). Sem o toggle, atualize manualmente:
@@ -52,7 +58,7 @@ claude plugin update frontend-simple@frontend-simple
 
 ## O que vem dentro
 
-### 9 skills
+### 10 skills
 
 | Skill | O que faz |
 |---|---|
@@ -62,6 +68,7 @@ claude plugin update frontend-simple@frontend-simple
 | `fs-design-system` | Camadas (base, marca, pagina), tokens `--fs-*`, 3 temas, e CSS moderno 2026 (@layer, container queries, OKLCH) |
 | `fs-typography` | Tipografia premium: pares com intencao, catalogo curado com licenca livre, self-host de variable fonts, escala fluida |
 | `fs-motion` | Assinatura em loop com pausa, reveal blindado sem JS, fluidez, e motion nativo (scroll-driven animations, View Transitions) |
+| `fs-sources` | Onde buscar ao vivo: fontes (com receita de self-host), cores OKLCH, galerias de referencia, icones via API, fotos |
 | `fs-copy` | Voz enterprise: headlines com tensao real, estrutura de hero, o que nunca escrever |
 | `fs-deslop` | Auditoria "tirar cara de IA": os tells de design e copy de 2026 e a correcao de cada um |
 | `fs-quality` | Gates finais: alinhamento (os "tortos" classicos), overflow, contraste AA, links e imagens |

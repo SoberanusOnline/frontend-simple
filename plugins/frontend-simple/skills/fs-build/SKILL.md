@@ -45,7 +45,8 @@ direcao fechada (marca, referencia e tom definidos).
 3. **Construir.** Base compartilhada + camada da pagina (`[data-pagina]` com
    acento proprio). Design system e tokens: skill `fs-design-system`.
    Tipografia: skill `fs-typography` (par com intencao, self-host, escala
-   fluida). Copy: skill `fs-copy`. Espacamento: secoes
+   fluida). Material vivo (fontes, cores, referencias, icones, fotos): skill
+   `fs-sources`. Copy: skill `fs-copy`. Espacamento: secoes
    `clamp(64px, 8vw, 120px)`, ritmo variado, nada colado.
 4. **Animar.** Assinatura em loop com pausa de leitura (~3,5s), pausada fora
    da viewport, estatica sob reduced-motion, conteudo visivel sem JS.

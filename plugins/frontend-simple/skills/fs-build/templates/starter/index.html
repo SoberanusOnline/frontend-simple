@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- TROCAR: título e descrição do seu produto -->
+<title>Produto Exemplo · Conformidade que vira prova</title>
+<meta name="description" content="Página starter do padrão frontend-simple de landing premium. Troque a marca, os tokens e a copy e construa por cima.">
+<meta name="theme-color" content="#161616">
+<!-- Fontes: o starter usa a pilha de sistema (zero dependências externas).
+     Para usar IBM Plex, baixe os woff2 do repositório oficial da IBM (pacote plex),
+     coloque em assets/fonts/ e declare @font-face no topo de base.css,
+     apontando os tokens de familia para 'IBM Plex Sans' / 'IBM Plex Serif' / 'IBM Plex Mono'. -->
+<link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+<a href="#conteudo" class="sr-only">Pular para o conteúdo</a>
+
+<!-- ============ NAV (72px, sticky) ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <!-- TROCAR: mark (SVG placeholder abaixo) e wordmark da sua marca -->
+    <a href="#topo" class="brand" aria-label="Produto Exemplo, início">
+      <svg class="mk" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <path d="M7.5 18.5v-11l11 11v-11" fill="none" stroke="currentColor" stroke-width="2.4"/>
+      </svg>
+      <span class="wm">Produto Exemplo</span>
+    </a>
+    <nav class="nav-links" aria-label="Seções">
+      <a href="#recursos">Recursos</a>
+      <a href="#acao">Veja em ação</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#acao" class="btn btn-ghost btn-sm ghost-hide">Ver demonstração</a>
+      <a href="#contato" class="btn btn-pri btn-sm">Falar com a equipe</a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+<span id="topo"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <!-- TROCAR: kicker (categoria do produto) -->
+      <p class="kicker rv"><i class="sq" aria-hidden="true"></i>plataforma de conformidade para o setor público</p>
+      <!-- TROCAR: headline. A ênfase é sublinhado no acento (em.u), nunca gradiente -->
+      <h1 class="rv d1">Transparência que se transforma em <em class="u">prova</em>.</h1>
+      <p class="lead rv d2">O Produto Exemplo lê as fontes oficiais do órgão, mede cada exigência contra a norma e publica a evidência datada. O gestor responde ao controle externo com dados, não com memória.</p>
+      <div class="hero-cta rv d3">
+        <a href="#contato" class="btn btn-pri">Começar o diagnóstico
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+        <a href="#acao" class="btn btn-ghost">Ver em ação</a>
+      </div>
+      <!-- TROCAR: linha de garantia -->
+      <p class="hero-assure rv d3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        Implantação assistida em até 15 dias, com dados reais do órgão desde o primeiro acesso.
+      </p>
+    </div>
+
+    <!-- Card-instrumento: o objeto-herói com dados mock. TROCAR pelos dados do seu produto -->
+    <div class="hero-art rv d2">
+      <figure class="card-inst" id="instrumento" aria-label="Exemplo de painel: índice de conformidade 94 de 100">
+        <div class="ci-head">
+          <span class="ci-t">Índice de conformidade</span>
+          <span class="ci-tag">ao vivo</span>
+        </div>
+        <div class="ci-main">
+          <div class="ci-num"><b>94</b><span>de 100</span></div>
+          <ul class="ci-cats">
+            <li>
+              <span class="cl">Transparência ativa</span><b>96</b>
+              <span class="bar" aria-hidden="true"><i class="fill" style="width:96%"></i></span>
+            </li>
+            <li>
+              <span class="cl">Resposta ao cidadão</span><b>91</b>
+              <span class="bar" aria-hidden="true"><i class="fill" style="width:91%"></i></span>
+            </li>
+            <li>
+              <span class="cl">Publicação legal</span><b>88</b>
+              <span class="bar" aria-hidden="true"><i class="fill" style="width:88%"></i></span>
+            </li>
+          </ul>
+        </div>
+        <figcaption class="ci-foot">
+          <span><span class="ok" aria-hidden="true"></span>Atualizado hoje</span>
+          <span>12 fontes</span>
+          <span>Série de 24 meses</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEÇÃO DE CONTEÚDO (grid alinhado) ============ -->
+<section class="sec" id="recursos">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><i class="sq" aria-hidden="true"></i>recursos</p>
+      <h2>Feito para o dia a dia do órgão</h2>
+      <p class="lead">Três frentes que trabalham juntas: o diagnóstico mede, o alerta antecipa e o relatório prova. Nenhuma exige treinamento além do primeiro acesso.</p>
+    </div>
+    <div class="cards">
+      <!-- TROCAR: os 3 recursos do seu produto -->
+      <article class="card rv">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4M8 11h6M11 8v6"/></svg>
+        <h3>Diagnóstico contínuo</h3>
+        <p>Cada exigência da norma vira um item verificável. O painel reavalia o órgão todos os dias e mostra exatamente o que caiu e por quê.</p>
+      </article>
+      <article class="card rv d1">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg>
+        <h3>Alerta antes do prazo</h3>
+        <p>Prazos de publicação, resposta e atualização chegam com antecedência para quem resolve, por e-mail e dentro do próprio painel.</p>
+      </article>
+      <article class="card rv d2">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM15 3v4h4M9 12h7M9 16h7"/></svg>
+        <h3>Relatório pronto para o controle</h3>
+        <p>Um clique gera o relatório com a base legal citada e a evidência datada, no formato que o tribunal de contas espera receber.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEAT: VEJA EM AÇÃO (mockup em 3 passos, anima em loop) ============ -->
+<section class="sec beat" id="acao">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><i class="sq" aria-hidden="true"></i>veja em ação</p>
+      <h2>Do dado bruto à evidência publicada</h2>
+      <p class="lead">O ciclo completo roda sem intervenção manual. Estes são os três passos que o painel executa a cada coleta.</p>
+    </div>
+
+    <!-- Janela de aplicação (mockup). TROCAR: url, passos e status -->
+    <div class="app rv d1" id="app-acao">
+      <div class="app-bar">
+        <span class="win" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="url">painel.exemplo.gov.br</span>
+        <span class="amb">demonstração</span>
+      </div>
+      <div class="app-body">
+        <ol class="passos">
+          <li class="passo">
+            <span class="pnum" aria-hidden="true">01</span>
+            <h3>Conecta as fontes</h3>
+            <p>O painel lê o portal da transparência, o Diário Oficial e o e-SIC do órgão, sem instalar nada.</p>
+            <span class="bar" aria-hidden="true"><i class="fill"></i></span>
+          </li>
+          <li class="passo">
+            <span class="pnum" aria-hidden="true">02</span>
+            <h3>Mede contra a norma</h3>
+            <p>Cada documento é comparado com a exigência legal correspondente, artigo por artigo.</p>
+            <span class="bar" aria-hidden="true"><i class="fill"></i></span>
+          </li>
+          <li class="passo">
+            <span class="pnum" aria-hidden="true">03</span>
+            <h3>Publica a evidência</h3>
+            <p>O resultado sai datado e assinado no relatório, pronto para o gestor e para o controle externo.</p>
+            <span class="bar" aria-hidden="true"><i class="fill"></i></span>
+          </li>
+        </ol>
+      </div>
+      <div class="app-foot">
+        <span class="ok" aria-hidden="true"></span>
+        <span>Coleta concluída · 128 documentos verificados</span>
+        <span class="mono">ciclo de 30 s</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="sec final" id="contato">
+  <div class="wrap">
+    <div class="final-in rv">
+      <h2>Veja o índice do seu órgão ainda esta semana.</h2>
+      <p>O diagnóstico inicial é feito com dados públicos e não exige acesso interno. Em uma conversa de 30 minutos mostramos o painel já preenchido.</p>
+      <div class="hero-cta">
+        <a href="#topo" class="btn btn-pri">Agendar demonstração
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+        <a href="#recursos" class="btn btn-ghost">Rever os recursos</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER (4 colunas) ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <!-- TROCAR: marca do footer -->
+        <p class="fb">
+          <svg class="mk" width="22" height="22" viewBox="0 0 26 26" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2.4"/>
+            <path d="M7.5 18.5v-11l11 11v-11" fill="none" stroke="currentColor" stroke-width="2.4"/>
+          </svg>
+          <span>Produto Exemplo</span>
+        </p>
+        <p class="fd">Conformidade medida todos os dias, com base legal citada e evidência datada. Feito para órgãos públicos de qualquer porte.</p>
+      </div>
+      <nav class="foot-col" aria-label="Produto">
+        <h4>Produto</h4>
+        <a href="#recursos">Recursos</a>
+        <a href="#acao">Veja em ação</a>
+        <a href="#contato">Demonstração</a>
+        <a href="#topo">Planos</a>
+      </nav>
+      <nav class="foot-col" aria-label="Empresa">
+        <h4>Empresa</h4>
+        <a href="#topo">Sobre</a>
+        <a href="#topo">Equipe</a>
+        <a href="#contato">Contato</a>
+        <a href="#topo">Imprensa</a>
+      </nav>
+      <nav class="foot-col" aria-label="Recursos">
+        <h4>Recursos</h4>
+        <a href="#topo">Documentação</a>
+        <a href="#topo">Guia de implantação</a>
+        <a href="#topo">Central de ajuda</a>
+        <a href="#topo">Status do serviço</a>
+      </nav>
+      <nav class="foot-col" aria-label="Padrões">
+        <h4>Padrões</h4>
+        <a href="#topo">Acessibilidade</a>
+        <a href="#topo">Privacidade</a>
+        <a href="#topo">Segurança</a>
+        <a href="#topo">Termos de uso</a>
+      </nav>
+    </div>
+    <div class="foot-bot">
+      <!-- TROCAR: holding ou grupo da sua marca -->
+      <p class="foot-emp">Uma empresa <b>Grupo Exemplo</b></p>
+      <p class="foot-note">Demonstração de produto. Os dados, números e nomes exibidos nesta página são fictícios e servem apenas para apresentar o padrão visual do starter.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/base.js"></script>
+</body>
+</html>

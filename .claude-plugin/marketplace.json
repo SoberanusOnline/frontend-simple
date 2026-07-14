@@ -1,0 +1,18 @@
+{
+  "name": "frontend-simple",
+  "owner": {
+    "name": "NEXUS",
+    "url": "https://github.com/SoberanusOnline"
+  },
+  "metadata": {
+    "description": "Frontend premium sem cara de IA: metodo de LPs com identidade por pagina (arquetipos), design system em camadas, motion em loop, copy enterprise, de-slop e gates de qualidade. By NEXUS.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "frontend-simple",
+      "source": "./plugins/frontend-simple",
+      "description": "Kit completo: 7 skills (build, arquetipos, design system + 3 temas, motion, copy, de-slop, quality), 2 agents e template starter para criar landing pages premium com identidade propria."
+    }
+  ]
+}

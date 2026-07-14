@@ -1,0 +1,340 @@
+/* ============================================================================
+   STARTER frontend-simple · base.css
+   Esqueleto de LP premium: neutros cool-gray, cantos retos, dado como
+   interface, motion com propósito e conteúdo sempre visível sem JS.
+   Troque os tokens de acento e as familias para vestir a sua marca.
+   ============================================================================ */
+
+/* ---------- 1. Tokens ----------
+   Para self-hostar IBM Plex: declare os @font-face aqui em cima e troque
+   as familias abaixo para 'IBM Plex Sans' / 'IBM Plex Serif' / 'IBM Plex Mono'. */
+:root{
+  --fs-sans:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --fs-serif:Georgia,'Times New Roman',serif;
+  --fs-mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+
+  /* neutros cool-gray */
+  --fs-bg:#ffffff;
+  --fs-bg-soft:#f4f4f4;
+  --fs-ink:#161616;
+  --fs-ink-2:#525252;
+  --fs-ink-3:#6f6f6f;
+  --fs-line:#e0e0e0;
+  --fs-line-2:#f4f4f4;
+
+  /* acento de exemplo (azul). TROCAR pelos tons da sua marca:
+     accent = preenchimentos e graficos
+     accent-ink = texto do acento sobre fundo claro (contraste AA)
+     accent-strong = bordas e realces
+     accent-soft = wash claro de fundo */
+  --fs-accent:#0f62fe;
+  --fs-accent-ink:#0043ce;
+  --fs-accent-strong:#0043ce;
+  --fs-accent-soft:#edf5ff;
+
+  /* motion e elevacao */
+  --fs-ease:cubic-bezier(.2,0,.38,.9);
+  --fs-ease-in:cubic-bezier(0,0,.3,1);
+  --fs-shadow-1:0 1px 2px rgba(22,22,22,.06);
+  --fs-shadow-2:0 1px 2px rgba(22,22,22,.06),0 12px 28px -16px rgba(22,22,22,.22);
+}
+
+/* ---------- 2. Reset minimo ---------- */
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  font-family:var(--fs-sans);color:var(--fs-ink);background:var(--fs-bg);
+  font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ol,ul{list-style:none}
+p,li,h1,h2,h3,h4{overflow-wrap:break-word}
+::selection{background:var(--fs-accent-soft);color:var(--fs-ink)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--fs-accent);outline-offset:2px;border-radius:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.sr-only:focus{position:fixed;top:12px;left:12px;width:auto;height:auto;clip:auto;z-index:200;background:var(--fs-ink);color:#fff;padding:12px 18px;font-weight:600}
+
+/* ---------- 3. Tipografia ----------
+   Display em serif, corpo em sans, dados em mono. Cantos retos em tudo. */
+h1,h2{font-family:var(--fs-serif);font-weight:500;letter-spacing:-.015em;color:var(--fs-ink);text-wrap:balance}
+h1{font-size:clamp(2.25rem,4.4vw,3.7rem);line-height:1.06}
+h2{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.14}
+h3{font-family:var(--fs-sans);font-weight:600;font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.3;letter-spacing:-.01em}
+.lead{font-size:clamp(1.02rem,1.3vw,1.2rem);color:var(--fs-ink-2);line-height:1.55;max-width:65ch}
+p{max-width:75ch}
+
+/* enfase da headline: sublinhado no acento (nunca gradiente em texto) */
+em.u{
+  font-style:normal;
+  text-decoration:underline;
+  text-decoration-color:var(--fs-accent);
+  text-decoration-thickness:.13em;
+  text-underline-offset:.14em;
+}
+
+/* kicker em mono, sem caixa alta e sem tracking */
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--fs-mono);font-size:.8rem;color:var(--fs-accent-ink);
+}
+.kicker .sq{width:8px;height:8px;background:var(--fs-accent);flex:none}
+.mono{font-family:var(--fs-mono)}
+
+/* ---------- 4. Layout ---------- */
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.sec{padding:clamp(64px,8vw,120px) 0}
+.head{margin-bottom:clamp(36px,5vw,56px)}
+.head .kicker{margin-bottom:14px}
+.head h2{margin-bottom:14px}
+
+/* ---------- 5. Nav premium (72px, sticky, sem vidro: fundo solido) ---------- */
+header.nav{
+  position:sticky;top:0;z-index:60;background:var(--fs-bg);
+  border-bottom:1px solid transparent;transition:border-color .2s var(--fs-ease);
+}
+header.nav.scrolled{border-bottom-color:var(--fs-line)}
+.nav-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;height:72px}
+.brand{display:flex;align-items:center;gap:11px;justify-self:start}
+.brand .mk{color:var(--fs-accent);flex:none}
+.brand .wm{font-weight:600;font-size:1.12rem;letter-spacing:-.015em;color:var(--fs-ink);white-space:nowrap}
+.nav-links{display:flex;gap:28px;justify-self:center;font-size:.92rem;font-weight:500;color:var(--fs-ink-2)}
+.nav-links a{position:relative;padding:4px 0;transition:color .15s var(--fs-ease)}
+.nav-links a:hover{color:var(--fs-accent-ink)}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;
+  background:var(--fs-accent);transform:scaleX(0);transform-origin:left;
+  transition:transform .2s var(--fs-ease);
+}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{display:flex;align-items:center;gap:8px;justify-self:end}
+
+/* ---------- 6. Botoes (primario solido no ink, ghost com borda) ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--fs-sans);font-weight:600;font-size:.9375rem;
+  border-radius:0;padding:0 22px;min-height:48px;white-space:nowrap;
+  border:1px solid transparent;cursor:pointer;
+  transition:background .15s var(--fs-ease),border-color .15s var(--fs-ease),color .15s var(--fs-ease);
+}
+.btn svg{width:16px;height:16px;flex:none;transition:transform .18s var(--fs-ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn:active{transform:translateY(1px)}
+.btn-pri{background:var(--fs-ink);color:#fff;border-color:var(--fs-ink)}
+.btn-pri:hover{background:#000;border-color:#000}
+.btn-ghost{background:transparent;color:var(--fs-ink);border-color:var(--fs-line)}
+.btn-ghost:hover{border-color:var(--fs-accent-ink);color:var(--fs-accent-ink)}
+.btn-sm{min-height:40px;padding:0 16px;font-size:.875rem}
+
+/* ---------- 7. Hero ---------- */
+.hero{
+  position:relative;isolation:isolate;overflow-x:clip;
+  padding:clamp(56px,7vw,96px) 0 clamp(64px,8vw,112px);
+  border-bottom:1px solid var(--fs-line);
+}
+/* textura de grade em colunas, esmaecida para o canto do objeto-heroi */
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:repeating-linear-gradient(90deg,var(--fs-line) 0 1px,transparent 1px calc(100%/12));
+  opacity:.45;
+  -webkit-mask-image:radial-gradient(120% 90% at 78% 12%,#000,transparent 72%);
+          mask-image:radial-gradient(120% 90% at 78% 12%,#000,transparent 72%);
+}
+/* wash de acento no canto superior direito (fundo, nunca texto) */
+.hero::after{
+  content:"";position:absolute;top:0;right:0;width:46%;height:78%;z-index:-1;pointer-events:none;
+  background:radial-gradient(58% 62% at 72% 28%,var(--fs-accent-soft),transparent 70%);
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero-grid>*{min-width:0}
+.hero-copy .kicker{margin-bottom:20px}
+.hero-copy h1{margin-bottom:20px}
+.hero-copy .lead{margin-bottom:30px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.hero-assure{display:flex;align-items:flex-start;gap:9px;font-size:.88rem;color:var(--fs-ink-3);max-width:48ch;line-height:1.5}
+.hero-assure svg{width:18px;height:18px;flex:none;color:var(--fs-accent-ink);margin-top:2px}
+.hero-art{position:relative;justify-self:center;width:100%;max-width:420px;isolation:isolate}
+/* aurora atras do objeto-heroi: respira devagar quando o motion e permitido */
+.hero-art::before{
+  content:"";position:absolute;inset:-10% -8% -10% -6%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(70% 70% at 60% 40%,var(--fs-accent-soft),transparent 72%),
+    linear-gradient(180deg,var(--fs-bg-soft),transparent 60%);
+  -webkit-mask-image:radial-gradient(80% 80% at 55% 45%,#000,transparent 78%);
+          mask-image:radial-gradient(80% 80% at 55% 45%,#000,transparent 78%);
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero-art::before{animation:nxBreath 15s ease-in-out infinite alternate}
+  @keyframes nxBreath{
+    0%{transform:translate3d(0,0,0) scale(1);opacity:.92}
+    50%{transform:translate3d(-2%,2.4%,0) scale(1.07);opacity:1}
+    100%{transform:translate3d(2%,-1.6%,0) scale(1.03);opacity:.82}
+  }
+}
+
+/* ---------- 8. Card-instrumento (objeto-heroi com dados mock) ---------- */
+.card-inst{
+  background:var(--fs-bg);border:1px solid var(--fs-line);
+  border-top:3px solid var(--fs-accent);box-shadow:var(--fs-shadow-2);
+}
+.ci-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px;border-bottom:1px solid var(--fs-line)}
+.ci-t{font-weight:600;font-size:.95rem}
+.ci-tag{font-family:var(--fs-mono);font-size:.7rem;color:var(--fs-ink-3);border:1px solid var(--fs-line);padding:3px 8px}
+.ci-main{display:flex;gap:24px;align-items:center;padding:22px}
+.ci-num{flex:none;text-align:center}
+.ci-num b{display:block;font-family:var(--fs-serif);font-weight:500;font-size:3.4rem;line-height:1;color:var(--fs-ink);font-variant-numeric:tabular-nums}
+.ci-num span{display:block;margin-top:6px;font-family:var(--fs-mono);font-size:.7rem;color:var(--fs-ink-3)}
+.ci-cats{flex:1;display:flex;flex-direction:column;gap:13px;min-width:0}
+.ci-cats li{display:grid;grid-template-columns:1fr auto;gap:3px 8px;align-items:center;font-size:.8rem}
+.ci-cats .cl{color:var(--fs-ink-2)}
+.ci-cats b{font-weight:600;color:var(--fs-ink);font-variant-numeric:tabular-nums}
+.ci-foot{display:flex;flex-wrap:wrap;gap:8px 16px;padding:13px 22px;border-top:1px solid var(--fs-line);font-family:var(--fs-mono);font-size:.7rem;color:var(--fs-ink-3)}
+.ci-foot>span{display:inline-flex;align-items:center;gap:7px}
+
+/* barra de dado (usada no card e no beat). A largura vem do HTML (style width)
+   ou do estado ativo; a animacao so mexe em transform (barato de compor). */
+.bar{grid-column:1/-1;display:block;height:5px;background:var(--fs-line-2);overflow:hidden}
+.bar .fill{display:block;height:100%;width:100%;background:var(--fs-accent);transform-origin:left}
+
+/* ponto de status ok */
+.ok{width:8px;height:8px;background:var(--fs-accent);flex:none;display:inline-block}
+
+/* ---------- 9. Secao de conteudo (grid de cards alinhado) ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,28px)}
+.cards>*{min-width:0}
+.card{
+  background:var(--fs-bg);border:1px solid var(--fs-line);padding:28px 26px 30px;
+  box-shadow:var(--fs-shadow-1);
+  transition:transform .18s var(--fs-ease),border-color .18s var(--fs-ease),box-shadow .18s var(--fs-ease);
+}
+.card:hover{transform:translateY(-3px);border-color:var(--fs-accent-strong);box-shadow:var(--fs-shadow-2)}
+.card .ic{width:30px;height:30px;color:var(--fs-accent-ink);margin-bottom:18px}
+.card h3{margin-bottom:9px}
+.card p{font-size:.92rem;color:var(--fs-ink-2);line-height:1.55}
+
+/* ---------- 10. Beat "Veja em acao" (janela de aplicacao em 3 passos) ---------- */
+.beat{background:var(--fs-bg-soft);border-top:1px solid var(--fs-line);border-bottom:1px solid var(--fs-line)}
+.app{background:var(--fs-bg);border:1px solid var(--fs-line);box-shadow:var(--fs-shadow-2)}
+
+/* top-bar da janela */
+.app-bar{display:flex;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid var(--fs-line);background:var(--fs-bg-soft)}
+.app-bar .win{display:flex;gap:6px}
+.app-bar .win i{width:9px;height:9px;background:var(--fs-line);display:block}
+.app-bar .url{font-family:var(--fs-mono);font-size:.78rem;color:var(--fs-ink-2)}
+.app-bar .amb{margin-left:auto;font-family:var(--fs-mono);font-size:.68rem;color:var(--fs-accent-ink);background:var(--fs-accent-soft);padding:3px 9px}
+
+/* corpo: 3 passos lado a lado */
+.app-body{padding:clamp(22px,3vw,34px)}
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2vw,26px)}
+.passos>*{min-width:0}
+.passo{position:relative;border:1px solid var(--fs-line);padding:22px 20px 24px;background:var(--fs-bg)}
+.passo .pnum{
+  display:inline-grid;place-items:center;width:34px;height:34px;margin-bottom:16px;
+  font-family:var(--fs-mono);font-size:.8rem;font-weight:600;
+  background:var(--fs-line-2);color:var(--fs-ink-2);
+  transition:background .3s var(--fs-ease),color .3s var(--fs-ease);
+}
+.passo h3{font-size:1.02rem;margin-bottom:8px}
+.passo p{font-size:.86rem;color:var(--fs-ink-2);line-height:1.5;margin-bottom:18px}
+.passo .bar{height:4px}
+/* estado ativo do ciclo (adicionado em cascata quando .app ganha .play) */
+.app.play .passo .pnum{background:var(--fs-accent);color:#fff}
+.app.play .passo:nth-child(1) .pnum{transition-delay:.1s}
+.app.play .passo:nth-child(2) .pnum{transition-delay:1s}
+.app.play .passo:nth-child(3) .pnum{transition-delay:1.9s}
+
+/* rodape da janela */
+.app-foot{display:flex;align-items:center;gap:10px;padding:12px 18px;border-top:1px solid var(--fs-line);font-size:.8rem;color:var(--fs-ink-2)}
+.app-foot .mono{margin-left:auto;font-size:.72rem;color:var(--fs-ink-3)}
+
+/* ---------- 11. CTA final ---------- */
+.final{border-top:1px solid var(--fs-line)}
+.final-in{max-width:680px}
+.final h2{margin-bottom:14px}
+.final p{color:var(--fs-ink-2);margin-bottom:26px}
+
+/* ---------- 12. Footer (4 colunas + disclaimer) ---------- */
+footer{background:var(--fs-bg-soft);border-top:1px solid var(--fs-line);padding:clamp(44px,6vw,64px) 0 30px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:30px;padding-bottom:32px;border-bottom:1px solid var(--fs-line)}
+.foot-top>*{min-width:0}
+.foot-brand .fb{display:flex;align-items:center;gap:9px;font-weight:600;font-size:1.05rem;margin-bottom:13px}
+.foot-brand .mk{color:var(--fs-accent)}
+.foot-brand .fd{font-size:.85rem;color:var(--fs-ink-3);line-height:1.55;max-width:36ch}
+.foot-col h4{font-family:var(--fs-mono);font-weight:500;font-size:.74rem;color:var(--fs-ink-3);margin-bottom:13px}
+.foot-col a{display:block;font-size:.88rem;color:var(--fs-ink-2);padding:5px 0;transition:color .12s var(--fs-ease)}
+.foot-col a:hover{color:var(--fs-accent-ink)}
+.foot-bot{display:flex;flex-direction:column;gap:10px;padding-top:20px}
+.foot-emp{font-size:.82rem;color:var(--fs-ink-2)}
+.foot-emp b{font-weight:600;color:var(--fs-ink)}
+.foot-note{font-size:.72rem;color:var(--fs-ink-3);line-height:1.55;max-width:80ch}
+
+/* ---------- 13. Reveal blindado ----------
+   O gate .fs-js e colocado no <html> pelo base.js. Sem JS, nada disto se
+   aplica e todo o conteudo fica visivel: a pagina degrada para estatica. */
+.fs-js .rv{
+  opacity:0;transform:translateY(16px);
+  transition:opacity .6s var(--fs-ease),transform .6s var(--fs-ease);
+}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.06s}
+.rv.d2{transition-delay:.12s}
+.rv.d3{transition-delay:.18s}
+
+/* ---------- 14. Animacoes-assinatura (gated em .fs-js) ----------
+   Fora do estado .play as barras colapsam rapido (reset do loop);
+   com .play elas preenchem em cascata. Sem JS: transform none, tudo cheio. */
+.fs-js .card-inst .fill,
+.fs-js .app .fill{transform:scaleX(0);transition:transform .22s var(--fs-ease)}
+.fs-js .card-inst.play .fill{transform:scaleX(1);transition:transform .8s var(--fs-ease)}
+.fs-js .card-inst.play li:nth-child(1) .fill{transition-delay:.05s}
+.fs-js .card-inst.play li:nth-child(2) .fill{transition-delay:.25s}
+.fs-js .card-inst.play li:nth-child(3) .fill{transition-delay:.45s}
+.fs-js .app.play .fill{transform:scaleX(1);transition:transform .7s var(--fs-ease)}
+.fs-js .app.play .passo:nth-child(1) .fill{transition-delay:.15s}
+.fs-js .app.play .passo:nth-child(2) .fill{transition-delay:1.05s}
+.fs-js .app.play .passo:nth-child(3) .fill{transition-delay:1.95s}
+/* respiro sutil no ponto de status (so com motion permitido) */
+@media (prefers-reduced-motion:no-preference){
+  .ok{animation:nxPulse 3.2s var(--fs-ease) infinite}
+  @keyframes nxPulse{0%,100%{opacity:1}50%{opacity:.4}}
+}
+
+/* ---------- 15. Reduced motion: tudo visivel, nada anima ---------- */
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1!important;transform:none!important;transition:none!important}
+  .card-inst .fill,.app .fill{transform:none!important;transition:none!important}
+  .passo .pnum{transition:none!important}
+  .app.play .passo .pnum{background:var(--fs-accent);color:#fff}
+  .btn,.card,.nav-links a::after{transition:none!important}
+}
+
+/* ---------- 16. Responsivo (1024 / 768 / 390) ---------- */
+@media(max-width:1024px){
+  .nav-links{gap:20px;font-size:.88rem}
+  .hero-grid{gap:36px}
+}
+@media(max-width:920px){
+  .nav-in{grid-template-columns:auto 1fr}
+  .nav-links{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero-art{max-width:440px;justify-self:start}
+}
+@media(max-width:768px){
+  .cards{grid-template-columns:1fr}
+  .passos{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr;gap:26px}
+  .foot-brand{grid-column:1/-1}
+}
+@media(max-width:390px){
+  .wrap{padding:0 18px}
+  .nav-cta .ghost-hide{display:none}
+  .brand .wm{font-size:1rem}
+  .ci-main{flex-direction:column;align-items:flex-start;gap:18px}
+  .ci-cats{width:100%}
+  .app-bar .url{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+@media(max-width:520px){
+  .nav-cta .ghost-hide{display:none}
+}

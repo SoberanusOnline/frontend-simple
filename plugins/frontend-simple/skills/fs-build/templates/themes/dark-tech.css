@@ -1,0 +1,21 @@
+/* TEMA dark-tech
+   Estetica: console/infraestrutura. Fundo quase-preto (nunca #000 puro),
+   texto claro com hierarquia por opacidade REAL (cores, nao alpha em texto
+   longo), acento eletrico usado com parcimonia (5 a 10% da superficie).
+   Tipografia sugerida: sans tecnica + mono generosa (dados, hashes, logs).
+   Cuidado AA: corpo claro sobre escuro precisa de 4.5:1 do mesmo jeito.
+   Uso: importe DEPOIS de base.css. */
+:root{
+  --fs-bg:#0c0d10;
+  --fs-bg-soft:#14161b;
+  --fs-ink:#f2f4f8;
+  --fs-ink-2:#b8bec8;
+  --fs-ink-3:#7a828e;
+  --fs-line:#23262d;
+  --fs-line-2:#31353e;
+  --fs-accent:#3ddbd9;        /* eletrico: troque pelo da marca */
+  --fs-accent-ink:#3ddbd9;    /* sobre escuro o proprio acento costuma passar AA */
+  --fs-accent-strong:#12b3b0;
+  --fs-accent-soft:#0e2b2b;
+  --fs-radius:0;
+}

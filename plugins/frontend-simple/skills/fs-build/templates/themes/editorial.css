@@ -1,0 +1,21 @@
+/* TEMA editorial
+   Estetica: publicacao/relatorio de autoridade. Serif de display COM
+   proposito (nao decorativa), hairlines, off-white verdadeiro (sem tint
+   cream: o warm-bege e um dos maiores tells de IA).
+   Tipografia sugerida: serif de display (Tiempos, Source Serif 4, Lora em
+   pesos altos) para h1/h2 + sans neutra para corpo + mono para datas/refs.
+   Uso: importe DEPOIS de base.css. */
+:root{
+  --fs-bg:#fcfcfc;            /* off-white neutro, chroma zero */
+  --fs-bg-soft:#f3f3f2;
+  --fs-ink:#1a1a1a;
+  --fs-ink-2:#494949;
+  --fs-ink-3:#8a8a8a;
+  --fs-line:#e4e4e2;
+  --fs-line-2:#cfcfcc;
+  --fs-accent:#8a2d1f;        /* oxblood: troque pelo tom da marca */
+  --fs-accent-ink:#7a2418;
+  --fs-accent-strong:#5c1a10;
+  --fs-accent-soft:#f7ece9;
+  --fs-radius:0;
+}

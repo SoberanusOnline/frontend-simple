@@ -1,0 +1,20 @@
+/* TEMA enterprise-sharp
+   Estetica: institucional/plataforma seria. Inspiracao: design systems
+   enterprise (cantos retos, neutros frios, mono para dados).
+   Tipografia sugerida: sans estrutural (IBM Plex Sans, Söhne, Inter Display
+   com pesos deliberados) + mono para kickers/dados (IBM Plex Mono).
+   Uso: importe DEPOIS de base.css, ou cole os tokens no :root. */
+:root{
+  --fs-bg:#ffffff;
+  --fs-bg-soft:#f4f4f6;
+  --fs-ink:#161616;
+  --fs-ink-2:#4d5358;
+  --fs-ink-3:#878d96;
+  --fs-line:#e0e2e6;
+  --fs-line-2:#c9cdd3;
+  --fs-accent:#0f62fe;        /* troque pelo acento da marca */
+  --fs-accent-ink:#0043ce;    /* versao AA para texto sobre claro */
+  --fs-accent-strong:#002d9c;
+  --fs-accent-soft:#edf5ff;
+  --fs-radius:0;              /* cantos retos: assinatura do tema */
+}

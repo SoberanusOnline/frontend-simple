@@ -17,6 +17,9 @@ que voltou (renderize e olhe a imagem quando for visual) e so entao decida.
 | fonts.google.com | o maior acervo; filtre por variable e por classificacao | SIL OFL na quase totalidade |
 | fontshare.com | as premium gratuitas da ITF (Satoshi, Clash Display, General Sans) | ITF Free Font License |
 | fontsource.org | qualquer Google Font empacotada para self-host via npm | segue a original |
+| bunny.net/fonts | espelho 1:1 do Google Fonts com privacidade (LGPD/GDPR) | segue a original |
+| uncut.wtf | displays contemporaneas de foundries independentes, otimas para editorial | varia por fonte, conferir |
+| velvetyne.fr | experimentais/autorais de foundry livre, para identidades ousadas | SIL OFL na maioria |
 
 Receita de self-host sem npm: o google-webfonts-helper devolve o zip de
 woff2 pronto com o @font-face:
@@ -38,6 +41,8 @@ ou compare em typewolf.com (galeria de pares reais por fonte).
 - Paleta a partir de um print de referencia: leia a imagem e estime os hex
   dominantes (fundo, tinta, acento); refine no oklch.com. Nao use gerador
   aleatorio de paleta para trabalho serio: a cor vem da marca ou do dominio.
+- realtimecolors.com: testa a paleta aplicada numa pagina real (texto, fundo,
+  acento) antes de comprometer os tokens.
 - Tendencias e nomes de cor por setor: busca web do tipo
   "<setor> brand colors 2026 site:awwwards.com OR site:godly.website".
 
@@ -51,6 +56,9 @@ ou compare em typewolf.com (galeria de pares reais por fonte).
 | lapa.ninja | LPs por categoria com paleta extraida |
 | curated.design e dark.design | selecoes enxutas, boas para vibe |
 | mobbin.com | padroes de UI de apps reais (parte paga) |
+| saaslandingpage.com | LPs de SaaS reais por secao (hero, pricing, faq) |
+| refero.design | telas de produtos reais na web, por fluxo e componente |
+| footer.design e navbar.gallery | colecoes por COMPONENTE, otimas para detalhe |
 
 Receita: escolha 2 galerias, monte a URL da categoria do projeto, screenshot
 headless da pagina da galeria, LEIA a imagem e abra as 2 ou 3 referencias
@@ -60,14 +68,19 @@ tipografia, densidade, composicao).
 
 ## Icones (com API direta)
 
-- Iconify agrega +200 mil icones de todos os sets com API de SVG direto:
-  `https://api.iconify.design/<set>:<nome>.svg` (ex.:
-  `lucide:file-check`, `ph:shield-check-bold`, `tabler:map-pin`).
-  Baixe com curl e embarque INLINE no HTML (currentColor herda o texto).
-- Sets recomendados por vibe: lucide (neutro universal), phosphor (pesos
-  variaveis), tabler (denso tecnico), heroicons (arredondado simples).
-- Regra do kit: um set so por projeto, stroke consistente, nada de emoji
-  como icone.
+| Fonte | O que tem | Como trazer |
+|---|---|---|
+| api.iconify.design | agregador de +200 mil icones de todos os sets | `curl https://api.iconify.design/<set>:<nome>.svg` (ex.: `lucide:file-check`, `ph:shield-check-bold`) |
+| lucide.dev | o set neutro universal do kit, stroke consistente | via Iconify (`lucide:`) ou download direto |
+| phosphoricons.com | 6 pesos por icone, bom para hierarquia | via Iconify (`ph:` e variantes `-bold`, `-duotone`) |
+| tabler.io/icons | +5 mil, denso e tecnico, otimo para dashboards | via Iconify (`tabler:`) |
+| heroicons.com | arredondado simples, combina com UI mais suave | via Iconify (`heroicons:`) |
+| lobehub.com/icons | logos de marcas de IA e tech (modelos, labs, apps) em SVG | pagina da marca > copiar SVG |
+| simpleicons.org / svgl.app | logos de marcas em geral (clouds, empresas, ferramentas) | download SVG direto, cores oficiais |
+
+Regras do kit: um set de UI so por projeto, stroke consistente, embarcar
+INLINE com `currentColor` (herda a cor do texto), e logo de marca sempre da
+fonte oficial da marca (nunca redesenhar de memoria).
 
 ## Fotos e ilustracoes
 

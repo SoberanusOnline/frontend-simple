@@ -47,7 +47,7 @@ novidade (basta rodar `/reload-plugins`). Sem o toggle, atualize manualmente:
 
 ```bash
 claude plugin marketplace update frontend-simple
-claude plugin update frontend-simple
+claude plugin update frontend-simple@frontend-simple
 ```
 
 ## O que vem dentro
